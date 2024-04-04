@@ -15,11 +15,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-<<<<<<< HEAD
-@Table(name = "users")
-=======
 @Table(name = "user")
->>>>>>> 5db79c4 (Initial commit)
 public class User {
 
     @Id
