@@ -22,14 +22,16 @@ public class PostController {
     public ResponseEntity<Post> createPostHandel(@RequestBody Post post, @PathVariable String username) {
         return new ResponseEntity<>(postService.savePost(post, username ), HttpStatus.CREATED);
     }
-    @GetMapping("userId/{id}")
-    public ResponseEntity<PostDTO> getPostByIdHandel(@PathVariable Long id) {
-        return ResponseEntity.ok(postService.getPostById(id));
-    }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Post> deletePostByIdHandel(@PathVariable Long id) {
         return ResponseEntity.ok(postService.DeletePostById(id));
+    }
+
+    @GetMapping("userId/{userId}")
+    public ResponseEntity<List<PostWithCommentsDTO>> getPostByIdHandel(@PathVariable Long userId) {
+        return ResponseEntity.ok(postService.getAllPostsByUserId(userId));
     }
 
     @GetMapping("/user/{username}")

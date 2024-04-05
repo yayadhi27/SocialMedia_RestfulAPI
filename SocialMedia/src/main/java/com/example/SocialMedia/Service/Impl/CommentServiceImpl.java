@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -34,14 +35,14 @@ public class CommentServiceImpl implements CommentService {
 
     @Transactional
     @Override
-    public CommentDTO saveComment(Comment comment, String username, Long postId) {
+    public CommentDTO saveComment(Comment comment, Long userId , Long postId) {
         Post post = postRepository.findById(postId).orElseThrow(() -> new PostException("Post not found"));
         if (comment == null)
             throw new CommentException("Invalid comment Details");
 
-        User user = userRepository.findByUsername(username);
+        User user = userRepository.findByUserId(userId);
         if (user == null)
-            throw new UserException("User with name: " + username + " not found");
+            throw new UserException("User with name: " + userId + " not found");
 
         comment.setCommentDatetime(LocalDateTime.now());
 

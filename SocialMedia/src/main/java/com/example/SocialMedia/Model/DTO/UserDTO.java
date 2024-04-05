@@ -8,8 +8,6 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Getter
-@Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDTO {
     private Long userId;
@@ -75,6 +73,14 @@ public class UserDTO {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public List<PostDTO> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<PostDTO> posts) {
+        this.posts = posts;
     }
 
     public UserDTO(User user, List<PostDTO> posts) {

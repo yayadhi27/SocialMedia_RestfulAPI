@@ -11,4 +11,6 @@ public interface PostService {
     public PostDTO getPostById(Long id);
     public Post DeletePostById(Long id);
     public List<PostWithCommentsDTO> getAllPostsByUserName(String name);
+
+    public List<PostWithCommentsDTO> getAllPostsByUserId(Long userId);
 }

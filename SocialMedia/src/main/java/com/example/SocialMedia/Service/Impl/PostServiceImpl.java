@@ -17,7 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -74,6 +73,24 @@ public class PostServiceImpl implements PostService {
         User user = userRepository.findByUsername(name);
         if (user == null) {
             throw new PostException("User with name: " + name + " not found");
+        }
+
+        List<Post> posts = user.getPosts();
+        List<PostWithCommentsDTO> postDTOs = posts.stream().map(PostWithCommentsDTO::new).collect(Collectors.toList());
+
+        return postDTOs;
+    }
+
+
+    @Override
+    public List<PostWithCommentsDTO> getAllPostsByUserId(Long userId) {
+        if (userId == null) {
+            throw new PostException("Invalid user name");
+        }
+
+        User user = userRepository.findByUserId(userId);
+        if (user == null) {
+            throw new PostException("User with name: " + userId + " not found");
         }
 
         List<Post> posts = user.getPosts();
