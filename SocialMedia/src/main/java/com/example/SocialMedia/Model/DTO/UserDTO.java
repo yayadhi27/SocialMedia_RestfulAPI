@@ -32,9 +32,6 @@ public class UserDTO {
         this.email = email;
     }
 
-    // Getters and setters (or Lombok annotations) for the fields
-
-
     public Long getUserId() {
         return userId;
     }

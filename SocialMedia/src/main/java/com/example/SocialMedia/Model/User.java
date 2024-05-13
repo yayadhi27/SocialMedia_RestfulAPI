@@ -31,11 +31,11 @@ public class User {
     @NotNull
     private String email;
 
-    @Column(name= "age", unique = true, nullable = false, length = 25)
+    @Column(name= "age",unique = false, nullable = false, length = 25)
     @NotNull
     private Integer age;
 
-    @Column(name= "address", unique = true, nullable = false, length = 25)
+    @Column(name= "address", unique = false , nullable = false, length = 25)
     @NotNull
     private String address;
 
