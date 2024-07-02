@@ -2,8 +2,6 @@ package com.example.SocialMedia.Model.DTO;
 
 import com.example.SocialMedia.Model.Post;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -28,6 +26,8 @@ public class PostWithCommentsDTO {
         this.comments = post.getComments().stream().map(CommentDTO::new).collect(Collectors.toList());
     }
 
+    public PostWithCommentsDTO() {
+    }
 
     public Long getPostId() {
         return postId;

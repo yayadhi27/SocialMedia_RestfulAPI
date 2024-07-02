@@ -3,8 +3,6 @@ package com.example.SocialMedia.Model.DTO;
 import com.example.SocialMedia.Model.Post;
 import com.example.SocialMedia.Model.User;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;

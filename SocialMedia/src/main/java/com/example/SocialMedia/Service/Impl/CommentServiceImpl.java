@@ -34,23 +34,21 @@ public class CommentServiceImpl implements CommentService {
 
     @Transactional
     @Override
-    public CommentDTO saveComment(Comment comment, Long userId , Long postId) {
+    public CommentDTO saveComment(Comment comment, Long userId, Long postId) {
         Post post = postRepository.findById(postId).orElseThrow(() -> new PostException("Post not found"));
         if (comment == null)
-            throw new CommentException("Invalid comment Details");
+            throw new CommentException("Invalid comment details");
 
         User user = userRepository.findByUserId(userId);
         if (user == null)
-            throw new UserException("User with name: " + userId + " not found");
+            throw new UserException("User with ID: " + userId + " not found");
 
         comment.setCommentDatetime(LocalDateTime.now());
-
         comment.setUser(user);
         comment.setPost(post);
         commentRepository.save(comment);
 
         return new CommentDTO(comment);
-
     }
 
 

@@ -2,11 +2,7 @@ package com.example.SocialMedia.Model.DTO;
 
 import com.example.SocialMedia.Model.Comment;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 
@@ -20,10 +16,16 @@ public class CommentDTO {
     private String username;
 
     public CommentDTO(Comment comment) {
-        this.commentId = comment.getCommentId();
+        if (comment == null) {
+            throw new IllegalArgumentException("Comment cannot be null");
+        }
         this.text = comment.getText();
+        this.username = comment.getUser() != null ? comment.getUser().getUsername() : "Unknown";
         this.commentDatetime = comment.getCommentDatetime();
-        this.username = comment.getUser().getUsername();
+    }
+
+    public CommentDTO(){
+
     }
 
     public Long getCommentId() {

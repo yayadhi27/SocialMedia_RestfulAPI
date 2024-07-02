@@ -2,8 +2,6 @@ package com.example.SocialMedia.Model.DTO;
 
 import com.example.SocialMedia.Model.User;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Getter;
-import lombok.Setter;
 
 
 import java.util.List;
@@ -30,6 +28,17 @@ public class UserDTO {
         this.userId = userId;
         this.username = username;
         this.email = email;
+    }
+
+    public UserDTO() {
+    }
+
+    public UserDTO(Long userId, String username, String email, Integer age, String address) {
+        this.address = address;
+        this.age = age;
+        this.email = email;
+        this.userId = userId;
+        this.username = username;
     }
 
     public Long getUserId() {

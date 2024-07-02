@@ -1,11 +1,10 @@
 package com.example.SocialMedia.Service.Impl;
 
-import com.example.SocialMedia.Exception.UserException;
-import com.example.SocialMedia.Model.DTO.CommentDTO;
 import com.example.SocialMedia.Model.DTO.PostDTO;
 import com.example.SocialMedia.Model.DTO.UserDTO;
 import com.example.SocialMedia.Model.Post;
 import com.example.SocialMedia.Model.User;
+import com.example.SocialMedia.Exception.UserException;
 import com.example.SocialMedia.Repository.CommentRepository;
 import com.example.SocialMedia.Repository.UserRepository;
 import com.example.SocialMedia.Service.UserService;
@@ -26,11 +25,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private CommentRepository commentRepository;
 
-
-    /*
-     * Creates a new user in the database.
-     * @throws UserException if the user details are invalid or if a user with the same email already exists.
-     */
     @Transactional
     @Override
     public User saveUser(User user) {

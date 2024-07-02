@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -45,6 +47,16 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Comment> comments;
 
+    @OneToMany(mappedBy = "follower", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Follow> following = new HashSet<>();
 
+    @OneToMany(mappedBy = "following", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Follow> followers = new HashSet<>();
 
+    public List<Post> getPosts() {
+        if (posts == null) {
+            posts = new ArrayList<>();
+        }
+        return posts;
+    }
 }

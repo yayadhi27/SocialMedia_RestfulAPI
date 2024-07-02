@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -42,5 +42,9 @@ public class Post {
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Comment> comments;
+
+    public List<Comment> getComments() {
+        return comments != null ? comments : new ArrayList<>();
+    }
 
 }

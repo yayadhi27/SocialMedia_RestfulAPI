@@ -1,12 +1,12 @@
 package com.example.SocialMedia.Service.Impl;
 
 import com.example.SocialMedia.Exception.PostException;
-import com.example.SocialMedia.Exception.UserException;
 import com.example.SocialMedia.Model.DTO.CommentDTO;
 import com.example.SocialMedia.Model.DTO.PostDTO;
 import com.example.SocialMedia.Model.DTO.PostWithCommentsDTO;
 import com.example.SocialMedia.Model.Post;
 import com.example.SocialMedia.Model.User;
+import com.example.SocialMedia.Exception.UserException;
 import com.example.SocialMedia.Repository.CommentRepository;
 import com.example.SocialMedia.Repository.PostRepository;
 import com.example.SocialMedia.Repository.UserRepository;
