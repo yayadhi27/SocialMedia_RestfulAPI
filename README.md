@@ -4,7 +4,10 @@ Social media platform using Spring Boot that performs basic CRUD operations
 • Create Post: A user shares a new post.
 • Get User Feed: Retrieve a user's feed containing posts from people they follow.
 • Add Comment: A user comments on a post.
+• Add Followers/Following: User can Follow other User and Check Following/Followers.
+
 
 UML Diagram:
-![image (1)](https://github.com/yayadhi27/SocialMedia_RestfulAPI/assets/142001180/d9e8a328-5aaf-4861-8692-222ac4792580)
+![image](https://github.com/yayadhi27/SocialMedia_RestfulAPI/assets/142001180/9970480f-746b-4f72-bcb9-b03dd48f849f)
+
 
